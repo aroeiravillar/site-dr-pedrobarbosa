@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel — Dr. Pedro Barbosa Pediatria</title>
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/logo-pb-mono.png">
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
     .login-loading {
@@ -17,13 +17,7 @@
 <body>
   <div class="login-loading">Carregando o painel...</div>
 
-  <!-- Decap CMS (anteriormente Netlify CMS) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <script>
-    // Registra preview customizado para artigos do blog (opcional)
-    CMS.registerPreviewStyle("/css/style.css");
-    CMS.registerPreviewStyle("/css/blog.css");
-  </script>
+  <!-- Sveltia CMS — fork moderno do Decap, funciona com GitHub OAuth direto (Vercel/Netlify/qualquer host) -->
+  <script type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>

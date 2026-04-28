@@ -1,15 +1,27 @@
+# =============================================================
+# Painel Admin — Sveltia CMS (substitui Decap)
+# Funciona em Vercel + GitHub via OAuth (auth.sveltia.dev)
+# Repositório: github.com/aroeiravillar/site-dr-pedrobarbosa
+# =============================================================
 backend:
-  name: git-gateway
+  name: github
+  repo: aroeiravillar/site-dr-pedrobarbosa
   branch: main
+  base_url: https://auth.sveltia.dev
 
-# Local do conteúdo gerenciável
+# Pasta onde as imagens dos artigos sao salvas
 media_folder: "assets/blog"
 public_folder: "/assets/blog"
 
-# Configurações em português
+# Idioma do painel
 locale: "pt"
 
-# Coleções editáveis pelo painel
+# Permite preview antes de publicar
+publish_mode: simple
+
+# =============================================================
+# Colecoes editaveis pelo painel
+# =============================================================
 collections:
   - name: "blog"
     label: "Artigos do Blog"

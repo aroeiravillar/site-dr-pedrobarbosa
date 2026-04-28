@@ -9,7 +9,7 @@
 }
 
 .about-hero-image {
-  border-radius: 280px 280px 24px 24px;
+  border-radius: 24px;
   overflow: hidden;
   aspect-ratio: 4 / 5;
   box-shadow: var(--shadow-lg);
@@ -33,7 +33,12 @@
 
 @media (max-width: 900px) {
   .about-hero { grid-template-columns: 1fr; gap: 40px; }
-  .about-hero-image { max-width: 360px; margin: 0 auto; aspect-ratio: 1; border-radius: 50%; }
+  .about-hero-image {
+    max-width: 360px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+  }
 }
 
 /* TIMELINE / EXPERIENCIA */

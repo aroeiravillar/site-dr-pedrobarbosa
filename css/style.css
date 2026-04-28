@@ -529,6 +529,8 @@ p { color: var(--color-text-soft); }
   max-width: 640px;
   margin: 0 auto;
   font-size: 1.05rem;
+  color: var(--color-primary);
+  font-weight: 500;
 }
 
 /* ========================================
