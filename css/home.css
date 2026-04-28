@@ -176,12 +176,22 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .hero-image { order: -1; }
+  /* Garante centralização explícita do bloco da foto */
+  .hero-image {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
   /* Foto do hero em mobile: mesmo formato do desktop (topo arredondado, base reta) */
   .hero-image-frame {
     max-width: 320px;
     aspect-ratio: 4 / 5;
     border-radius: 200px 200px 24px 24px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
