@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_partials/
+
+Sitemap: https://drpedrobarbosapediatra.com.br/sitemap.xml

@@ -1,0 +1,45 @@
+# =============================================================
+# Painel Admin — Sveltia CMS (substitui Decap)
+# Funciona em Vercel + GitHub via OAuth (auth.sveltia.dev)
+# Repositório: github.com/aroeiravillar/site-dr-pedrobarbosa
+# =============================================================
+backend:
+  name: github
+  repo: aroeiravillar/site-dr-pedrobarbosa
+  branch: main
+  base_url: https://auth.sveltia.dev
+
+# Pasta onde as imagens dos artigos sao salvas
+media_folder: "assets/blog"
+public_folder: "/assets/blog"
+
+# Idioma do painel
+locale: "pt"
+
+# Permite preview antes de publicar
+publish_mode: simple
+
+# =============================================================
+# Colecoes editaveis pelo painel
+# =============================================================
+collections:
+  - name: "blog"
+    label: "Artigos do Blog"
+    label_singular: "Artigo"
+    folder: "blog/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Subtítulo / Resumo", name: "subtitle", widget: "text", required: false }
+      - { label: "Data de publicação", name: "date", widget: "datetime", default: "" }
+      - { label: "Autor", name: "author", widget: "string", default: "Dr. Pedro Barbosa" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Saúde Infantil", "Vacinação", "Desenvolvimento", "Alimentação", "Doenças Comuns", "Maternidade"], default: "Saúde Infantil" }
+      - { label: "Imagem de capa", name: "image", widget: "image" }
+      - { label: "Texto alternativo da imagem", name: "image_alt", widget: "string" }
+      - { label: "Tempo de leitura (minutos)", name: "reading_time", widget: "number", default: 5, min: 1 }
+      - { label: "Palavras-chave (SEO)", name: "keywords", widget: "string", required: false, hint: "Separe por vírgulas. Ex: pediatra, vacinação, BH" }
+      - { label: "Meta descrição (SEO)", name: "description", widget: "text", required: false, hint: "Até 160 caracteres" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
