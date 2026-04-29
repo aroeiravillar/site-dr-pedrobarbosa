@@ -7,7 +7,6 @@ backend:
   name: github
   repo: aroeiravillar/site-dr-pedrobarbosa
   branch: main
-  base_url: https://auth.sveltia.dev
 
 # Pasta onde as imagens dos artigos sao salvas
 media_folder: "assets/blog"

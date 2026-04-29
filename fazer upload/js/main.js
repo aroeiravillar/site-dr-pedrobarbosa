@@ -74,16 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 1. Cliques em qualquer link do WhatsApp (botões, flutuante, footer)
+  // 1. Cliques em qualquer link do WhatsApp (apenas evento GA4 para análise)
+  // OBS: A conversão Google Ads é disparada via gtag_report_conversion (onclick nos links HTML)
   document.querySelectorAll('a[href*="whatsapp.com"], a[href*="wa.me"]').forEach((link) => {
     link.addEventListener('click', () => {
-      // Conversão Google Ads (precisa criar a conversão no painel e atualizar AW-18054483923/XXXX)
-      trackEvent('conversion', {
-        send_to: 'AW-18054483923/Zg3nClnZ86McENOfhqFD',
-        event_category: 'engagement',
-        event_label: 'WhatsApp Click',
-      });
-      // Evento GA4 customizado
       trackEvent('whatsapp_click', {
         event_category: 'contato',
         event_label: link.getAttribute('aria-label') || 'WhatsApp',
