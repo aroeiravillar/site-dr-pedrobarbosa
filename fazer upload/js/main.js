@@ -65,23 +65,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // GOOGLE ADS / ANALYTICS — TRACKING DE EVENTOS
+  // TRACKING DE EVENTOS — via dataLayer (GTM)
   // ============================================
-  // Helper para garantir que o gtag está disponível
+  // Empurra eventos para o dataLayer do GTM. Configure os triggers no painel
+  // do GTM (GTM-PTC4KX5Q) para ouvir cada evento custom listado abaixo:
+  //   - whatsapp_click   → conversão Google Ads + evento GA4
+  //   - instagram_click  → evento GA4
+  //   - phone_click      → evento GA4 / conversão (se aplicável)
+  //   - email_click      → evento GA4
+  //   - service_click    → evento GA4
+  //   - blog_click       → evento GA4
+  //   - scroll_depth     → evento GA4 (também há gatilho nativo no GTM)
   const trackEvent = (eventName, params = {}) => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', eventName, params);
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      ...params,
+    });
   };
 
-  // 1. Cliques em qualquer link do WhatsApp (apenas evento GA4 para análise)
-  // OBS: A conversão Google Ads é disparada via gtag_report_conversion (onclick nos links HTML)
+  // 1. Cliques em qualquer link do WhatsApp → dispara whatsapp_click no dataLayer (GTM)
+  // Configure no GTM (GTM-PTC4KX5Q):
+  //   - Trigger: Custom Event = whatsapp_click
+  //   - Tag: Google Ads Conversion Tracking (Conversion ID + Label) e/ou GA4 Event
   document.querySelectorAll('a[href*="whatsapp.com"], a[href*="wa.me"]').forEach((link) => {
     link.addEventListener('click', () => {
       trackEvent('whatsapp_click', {
         event_category: 'contato',
-        event_label: link.getAttribute('aria-label') || 'WhatsApp',
+        event_label: link.getAttribute('aria-label') || link.textContent.trim() || 'WhatsApp',
+        click_url: link.getAttribute('href'),
+        click_text: link.textContent.trim(),
+        click_classes: link.className,
         page_path: window.location.pathname,
+        page_url: window.location.href,
+        page_title: document.title,
       });
     });
   });
