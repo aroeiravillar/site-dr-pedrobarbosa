@@ -735,7 +735,7 @@
   position: relative;
   border-radius: 240px 240px 24px 24px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   box-shadow: var(--shadow-lg);
 }
 
