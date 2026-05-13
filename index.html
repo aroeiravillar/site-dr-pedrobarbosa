@@ -56,43 +56,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="css/style.css?v=9">
 <link rel="stylesheet" href="css/home.css?v=9">
 
-<!-- Schema.org JSON-LD: Physician (com logo para Google Search) -->
+<!-- Schema.org JSON-LD: MedicalClinic (consultório principal Clínica MV) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Physician",
-  "name": "Dr. Pedro Barbosa",
+  "@type": "MedicalClinic",
+  "@id": "https://drpedrobarbosapediatra.com.br/#clinic-mv",
+  "name": "Dr. Pedro Barbosa Pediatria - Clínica MV",
   "alternateName": "Pedro Barbosa Pediatria",
-  "description": "Médico pediatra com atendimento particular humanizado em Belo Horizonte/MG. Acompanhamento de bebês, crianças e adolescentes.",
+  "description": "Atendimento pediátrico particular humanizado em Belo Horizonte/MG, na Clínica MV (Funcionários). Acompanhamento de bebês, crianças e adolescentes.",
   "medicalSpecialty": "Pediatrics",
   "image": "https://drpedrobarbosapediatra.com.br/assets/photo-retrato-mv.jpg",
   "logo": "https://drpedrobarbosapediatra.com.br/assets/favicon/icon-512.png",
   "url": "https://drpedrobarbosapediatra.com.br/",
-  "telephone": ["+553133245212", "+553135040052"],
+  "telephone": "+553133245212",
   "priceRange": "$$",
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "name": "Clínica MV",
-      "streetAddress": "Rua Cláudio Manoel, 48, sala 1102",
-      "addressLocality": "Belo Horizonte",
-      "addressRegion": "MG",
-      "postalCode": "30140-100",
-      "addressCountry": "BR"
-    },
-    {
-      "@type": "PostalAddress",
-      "name": "Clínica Numai",
-      "streetAddress": "Avenida Coronel José Dias Bicalho, 620",
-      "addressLocality": "Belo Horizonte",
-      "addressRegion": "MG",
-      "addressCountry": "BR"
-    }
-  ],
+  "currenciesAccepted": "BRL",
+  "paymentAccepted": "Particular, Reembolso",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Cláudio Manoel, 48, sala 1102",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "postalCode": "30140-100",
+    "addressCountry": "BR"
+  },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "-19.9355",
     "longitude": "-43.9389"
+  },
+  "physician": {
+    "@type": "Physician",
+    "@id": "https://drpedrobarbosapediatra.com.br/#dr-pedro",
+    "name": "Dr. Pedro Barbosa",
+    "medicalSpecialty": "Pediatrics",
+    "image": "https://drpedrobarbosapediatra.com.br/assets/photo-retrato-mv.jpg",
+    "url": "https://drpedrobarbosapediatra.com.br/sobre.html",
+    "identifier": [
+      {"@type":"PropertyValue","name":"CRM-MG","value":"75143"},
+      {"@type":"PropertyValue","name":"RQE","value":"50238"}
+    ]
   },
   "sameAs": [
     "https://www.instagram.com/drpedrobarbosapediatra/"
@@ -104,7 +108,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-<!-- Schema.org Organization (Google Search reconhece a logo a partir deste schema) -->
+<!-- Schema.org JSON-LD: MedicalClinic (segundo endereço - Clínica Numai) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://drpedrobarbosapediatra.com.br/#clinic-numai",
+  "name": "Dr. Pedro Barbosa Pediatria - Clínica Numai",
+  "description": "Atendimento pediátrico particular na Clínica Numai, São Luiz/Pampulha, Belo Horizonte/MG.",
+  "medicalSpecialty": "Pediatrics",
+  "image": "https://drpedrobarbosapediatra.com.br/assets/photo-retrato-mv.jpg",
+  "url": "https://drpedrobarbosapediatra.com.br/",
+  "telephone": "+553135040052",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avenida Coronel José Dias Bicalho, 620",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "addressCountry": "BR"
+  },
+  "physician": {
+    "@type": "Physician",
+    "@id": "https://drpedrobarbosapediatra.com.br/#dr-pedro"
+  },
+  "sameAs": [
+    "https://www.instagram.com/drpedrobarbosapediatra/"
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "Belo Horizonte"
+  }
+}
+</script>
+
+<!-- Schema.org Organization (logo no Google Search) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
