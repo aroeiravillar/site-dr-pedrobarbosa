@@ -84,22 +84,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // 0. GCLID → WhatsApp (atribuição de cliques do Google Ads)
+  // Captura o gclid (Google Ads Click ID) da URL e adiciona "[ref: GCLID]" ao
+  // final da mensagem pré-preenchida de CADA botão WhatsApp.
+  // Preserva o número original (MV vs Numai) e o texto original de cada botão.
+  // Persiste em sessionStorage para sobreviver à navegação dentro do site.
+  // Só atua se houver gclid — sem GCLID, nada muda.
+  let gclid = new URLSearchParams(location.search).get('gclid');
+  try {
+    if (gclid) sessionStorage.setItem('gclid', gclid);
+    else gclid = sessionStorage.getItem('gclid');
+  } catch (e) { /* sessionStorage pode estar bloqueado (privacidade) */ }
+
+  if (gclid) {
+    document.querySelectorAll(
+      'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]'
+    ).forEach((a) => {
+      try {
+        const url = new URL(a.href);
+        const currentText = url.searchParams.get('text') || '';
+        // Guard: evita duplicar [ref:] se o script rodar mais de uma vez
+        if (currentText.indexOf('[ref:') === -1) {
+          url.searchParams.set('text', currentText + ' [ref: ' + gclid + ']');
+          a.href = url.toString();
+        }
+      } catch (e) { /* href malformado, ignora este link */ }
+    });
+  }
+
   // 1. Cliques em qualquer link do WhatsApp → dispara whatsapp_click no dataLayer (GTM)
+  // Usa EVENT DELEGATION no document: um único listener captura cliques em TODOS
+  // os links WhatsApp — inclusive em ícones/spans filhos (ex: .whatsapp-float-item)
+  // e botões que venham a ser adicionados dinamicamente. Sem risco de disparo duplo.
   // Configure no GTM (GTM-PTC4KX5Q):
   //   - Trigger: Custom Event = whatsapp_click
   //   - Tag: Google Ads Conversion Tracking (Conversion ID + Label) e/ou GA4 Event
-  document.querySelectorAll('a[href*="whatsapp.com"], a[href*="wa.me"]').forEach((link) => {
-    link.addEventListener('click', () => {
-      trackEvent('whatsapp_click', {
-        event_category: 'contato',
-        event_label: link.getAttribute('aria-label') || link.textContent.trim() || 'WhatsApp',
-        click_url: link.getAttribute('href'),
-        click_text: link.textContent.trim(),
-        click_classes: link.className,
-        page_path: window.location.pathname,
-        page_url: window.location.href,
-        page_title: document.title,
-      });
+  const isWhatsappLink = (el) => {
+    if (!el || el.tagName !== 'A') return false;
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    return href.indexOf('whatsapp') !== -1 ||
+           href.indexOf('wa.me') !== -1 ||
+           href.indexOf('api.whatsapp') !== -1;
+  };
+
+  document.addEventListener('click', (e) => {
+    // e.target pode ser um <span>/<svg> dentro do <a> — sobe no DOM até o link
+    const link = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!isWhatsappLink(link)) return;
+    // NÃO chamamos preventDefault — o link abre o WhatsApp normalmente
+    trackEvent('whatsapp_click', {
+      event_category: 'contato',
+      event_label: link.getAttribute('aria-label') || link.textContent.trim() || 'WhatsApp',
+      click_url: link.getAttribute('href'),
+      click_text: link.textContent.trim(),
+      click_classes: link.className,
+      page_path: window.location.pathname,
+      page_url: window.location.href,
+      page_title: document.title,
     });
   });
 
