@@ -1,3 +1,42 @@
+// Remove qualquer [ref: ...] da mensagem dos links de WhatsApp,
+// mantendo o numero e a mensagem originais de CADA link (MV e Numai).
+// A ref vem injetada em tempo de execucao (GTM); aqui limpamos na carga
+// e tambem no clique (fase de captura), antes de abrir o WhatsApp.
+(function () {
+  function limparRef(href) {
+    if (!href) return href;
+    var limpo = href;
+    // forma codificada na URL: ...+%5Bref%3A+VALOR%5D
+    limpo = limpo.replace(/(?:\+|%20|\s)*%5[Bb]\s*ref\s*%3[Aa][^&]*?%5[Dd]/gi, '');
+    // forma decodificada: ... [ref: VALOR]
+    limpo = limpo.replace(/(?:\s|\+|%20)*\[\s*ref\s*:[^\]]*\]/gi, '');
+    return limpo;
+  }
+  function ehWhatsapp(a) {
+    if (!a || a.tagName !== 'A') return false;
+    var h = (a.getAttribute('href') || '').toLowerCase();
+    return h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1;
+  }
+  function limparUm(a) {
+    var h = a.getAttribute('href');
+    var novo = limparRef(h);
+    if (novo !== h) a.setAttribute('href', novo);
+  }
+  function limparTodos() {
+    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(limparUm);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', limparTodos);
+  } else {
+    limparTodos();
+  }
+  window.addEventListener('load', limparTodos);
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (ehWhatsapp(a)) limparUm(a);
+  }, true);
+})();
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.menu-toggle');
@@ -83,34 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ...params,
     });
   };
-
-  // 0. GCLID → WhatsApp (atribuição de cliques do Google Ads)
-  // Captura o gclid (Google Ads Click ID) da URL e adiciona "[ref: GCLID]" ao
-  // final da mensagem pré-preenchida de CADA botão WhatsApp.
-  // Preserva o número original (MV vs Numai) e o texto original de cada botão.
-  // Persiste em sessionStorage para sobreviver à navegação dentro do site.
-  // Só atua se houver gclid — sem GCLID, nada muda.
-  let gclid = new URLSearchParams(location.search).get('gclid');
-  try {
-    if (gclid) sessionStorage.setItem('gclid', gclid);
-    else gclid = sessionStorage.getItem('gclid');
-  } catch (e) { /* sessionStorage pode estar bloqueado (privacidade) */ }
-
-  if (gclid) {
-    document.querySelectorAll(
-      'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]'
-    ).forEach((a) => {
-      try {
-        const url = new URL(a.href);
-        const currentText = url.searchParams.get('text') || '';
-        // Guard: evita duplicar [ref:] se o script rodar mais de uma vez
-        if (currentText.indexOf('[ref:') === -1) {
-          url.searchParams.set('text', currentText + ' [ref: ' + gclid + ']');
-          a.href = url.toString();
-        }
-      } catch (e) { /* href malformado, ignora este link */ }
-    });
-  }
 
   // 1. Cliques em qualquer link do WhatsApp → dispara whatsapp_click no dataLayer (GTM)
   // Usa EVENT DELEGATION no document: um único listener captura cliques em TODOS
