@@ -19,9 +19,9 @@
 
 .hero-eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: clamp(0.62rem, 1.3vw, 0.75rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 20px;
@@ -29,6 +29,16 @@
   background: rgba(255, 255, 255, 0.6);
   border-radius: 999px;
   border: 1px solid rgba(44, 70, 96, 0.12);
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Em telas muito pequenas (celular), permite quebra pra não estourar */
+@media (max-width: 500px) {
+  .hero-eyebrow {
+    white-space: normal;
+    letter-spacing: 0.12em;
+  }
 }
 
 .hero-title {
