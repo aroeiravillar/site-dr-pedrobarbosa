@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:\\\\Users\\\\camil\\\\Documents\\\\Claude\\\\Projects\\\\AV Marketing Médico\\\\SITE PEDRO\\\\SITE DR PEDRO BARBOSA\\\\fazer upload\" -maxdepth 3 -name \"*.html\" -not -path \"*admin*\" | sort)"
+    ]
+  }
+}
