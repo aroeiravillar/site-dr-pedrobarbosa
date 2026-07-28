@@ -239,7 +239,7 @@
   color: var(--color-text);
 }
 
-.article-content p { margin-bottom: 22px; }
+.article-content p { margin-bottom: 22px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 
 .article-content h2 {
   font-size: 1.7rem;
