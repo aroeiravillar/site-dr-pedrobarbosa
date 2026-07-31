@@ -729,6 +729,59 @@
   color: var(--color-text-soft);
 }
 
+/* ==========================================================
+   FAQ - variante "flat" (usada nos artigos do blog)
+   Sem accordion, sem cards. Perguntas em serif elegante,
+   respostas sempre visíveis com texto justificado.
+   ========================================================== */
+.faq-list--flat .faq-item {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  transition: none;
+  margin-bottom: 36px;
+  padding: 0;
+}
+.faq-list--flat .faq-item.open {
+  box-shadow: none;
+  border-color: transparent;
+}
+.faq-list--flat .faq-question {
+  display: block;
+  width: auto;
+  padding: 0;
+  margin-bottom: 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+  font-weight: 500;
+  color: var(--color-primary);
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: default;
+  line-height: 1.35;
+}
+.faq-list--flat .faq-icon {
+  display: none;
+}
+.faq-list--flat .faq-answer {
+  max-height: none !important;
+  overflow: visible;
+  transition: none;
+}
+.faq-list--flat .faq-answer p {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
 @media (max-width: 900px) {
   .faq-grid { grid-template-columns: 1fr; gap: 36px; }
 }
