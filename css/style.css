@@ -23,7 +23,7 @@
   --color-white: #FFFFFF;
   --color-text: #2C4660;
   --color-text-soft: #5A6B7E;
-  --color-text-muted: #8B98A8;
+  --color-text-muted: #667585; /* WCAG AA: 5.13:1 sobre branco (era #8B98A8 com 2.94:1) */
   --color-border: #D4DCE5;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #1FAD52;
@@ -303,12 +303,50 @@ p { color: var(--color-text-soft); }
 
 .menu-toggle {
   display: none;
-  width: 36px;
-  height: 36px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
+}
+
+/* Utility: visualmente escondido, mas lido por leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Container variante estreita (usada em artigos e FAQs) */
+.container--narrow {
+  max-width: 760px;
+}
+
+/* Utility: texto justificado */
+.text-justify {
+  text-align: justify;
+}
+
+/* Valor secundário em blocos de meta (contato, dados) */
+.meta-value {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+}
+
+/* Código institucional/registro (CRM, RQE) */
+.meta-code {
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .menu-toggle span {
