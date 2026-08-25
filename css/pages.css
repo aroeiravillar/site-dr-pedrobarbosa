@@ -233,6 +233,18 @@
   object-fit: cover;
 }
 
+/* Modificador: imagem original quase quadrada (foto de rosto próximo, retrato).
+   Usa aspect-ratio mais baixo pra evitar cortes verticais no rosto. */
+.article-image--portrait {
+  aspect-ratio: 4 / 3;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-image--portrait img {
+  object-position: center 30%;
+}
+
 .article-content {
   font-size: 1.02rem;
   line-height: 1.8;
