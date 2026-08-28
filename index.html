@@ -50,8 +50,8 @@ window.dataLayer = window.dataLayer || [];
 <meta name="twitter:description" content="Pediatra particular e intensivista pediátrico em Belo Horizonte. Acompanhamento humanizado e individualizado.">
 <meta name="twitter:image" content="https://drpedrobarbosapediatra.com.br/assets/og-image.png">
 
-<!-- Preload LCP hero (com fallback WebP quando disponivel) -->
-<link rel="preload" as="image" href="/assets/photo-retrato-mv.jpg" fetchpriority="high" imagesrcset="/assets/photo-retrato-mv.webp" type="image/webp">
+<!-- Preload LCP hero (JPG - trocar por WebP quando processado) -->
+<link rel="preload" as="image" href="/assets/photo-retrato-mv.jpg" fetchpriority="high">
 
 <!-- Fonts -->
 <!-- Favicon -->
@@ -241,13 +241,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hero-image">
       <div class="hero-image-frame">
-        <picture>
-          <source srcset="assets/photo-retrato-mv.webp" type="image/webp">
-          <img src="assets/photo-retrato-mv.jpg"
-               alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte, examinando bebê"
-               width="800" height="1000"
-               loading="eager" fetchpriority="high" decoding="async">
-        </picture>
+        <img src="assets/photo-retrato-mv.jpg"
+             alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte, examinando bebê"
+             width="800" height="1000"
+             loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   </div>
