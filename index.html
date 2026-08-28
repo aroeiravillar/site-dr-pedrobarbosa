@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PTC4KX5Q');</script>
+<!-- Google Tag Manager (lazy load: 3s ou 1a interacao) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var f=document.getElementsByTagName('script')[0],
+        j=document.createElement('script');
+    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id=GTM-PTC4KX5Q';
+    f.parentNode.insertBefore(j,f);
+    dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
+    window.addEventListener(e, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
 <!-- End Google Tag Manager -->
 
 <meta charset="UTF-8">
@@ -37,6 +50,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:description" content="Pediatra particular e intensivista pediátrico em Belo Horizonte. Acompanhamento humanizado e individualizado.">
 <meta name="twitter:image" content="https://drpedrobarbosapediatra.com.br/assets/og-image.png">
 
+<!-- Preload LCP hero (com fallback WebP quando disponivel) -->
+<link rel="preload" as="image" href="/assets/photo-retrato-mv.jpg" fetchpriority="high" imagesrcset="/assets/photo-retrato-mv.webp" type="image/webp">
+
 <!-- Fonts -->
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -50,7 +66,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"></noscript>
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css?v=10">
@@ -169,7 +186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="header-logo" aria-label="Dr. Pedro Barbosa - Página inicial">
-      <img src="assets/logo-pb-original.png" alt="Logo Dr. Pedro Barbosa Pediatria">
+      <img src="assets/logo-pb-original.png" alt="Logo Dr. Pedro Barbosa Pediatria" width="40" height="40" decoding="async">
       <span class="header-logo-text">Dr. Pedro Barbosa</span>
     </a>
     <nav class="header-nav" aria-label="Navegação principal">
@@ -224,7 +241,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hero-image">
       <div class="hero-image-frame">
-        <img src="assets/photo-retrato-mv.jpg" alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte, examinando bebê" loading="eager">
+        <picture>
+          <source srcset="assets/photo-retrato-mv.webp" type="image/webp">
+          <img src="assets/photo-retrato-mv.jpg"
+               alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte, examinando bebê"
+               width="800" height="1000"
+               loading="eager" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
@@ -272,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="about-grid">
       <div class="about-image">
-        <img src="assets/photo-balanca-sorriso.jpg" alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte">
+        <img src="assets/photo-balanca-sorriso.jpg" alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte" width="600" height="400" decoding="async">
       </div>
       <div class="about-text reveal">
         <span class="section-eyebrow">Sobre o Dr. Pedro</span>
@@ -307,7 +330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="services-grid">
       <a href="servicos/alergias-infeccoes.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/servico-alergias.jpg" alt="Cuidados com alergias e infecções" loading="lazy">
+          <img src="assets/servico-alergias.jpg" alt="Cuidados com alergias e infecções" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Alergias, infecções e doenças comuns</h3>
         <p class="text-justify">Diagnóstico e tratamento das condições mais frequentes da infância, com orientação clara para as famílias.</p>
@@ -316,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="servicos/acompanhamento-pediatrico.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/photo-consulta-pais.jpg" alt="Acompanhamento desde os primeiros dias de vida" loading="lazy">
+          <img src="assets/photo-consulta-pais.jpg" alt="Acompanhamento desde os primeiros dias de vida" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Acompanhamento desde os primeiros dias</h3>
         <p class="text-justify">Consultas regulares para crescimento, desenvolvimento e bem-estar, do recém-nascido à adolescência.</p>
@@ -325,7 +348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="servicos/vacinacao.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/servico-vacinas.jpeg" alt="Vacinas e prevenção de doenças" loading="lazy">
+          <img src="assets/servico-vacinas.jpeg" alt="Vacinas e prevenção de doenças" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Vacinação e prevenção</h3>
         <p class="text-justify">Orientação sobre o calendário vacinal, imunizações complementares e medidas preventivas.</p>
@@ -334,7 +357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="servicos/desenvolvimento.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/photo-balanca-close.jpg" alt="Avaliação do crescimento e desenvolvimento" loading="lazy">
+          <img src="assets/photo-balanca-close.jpg" alt="Avaliação do crescimento e desenvolvimento" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Crescimento e desenvolvimento</h3>
         <p class="text-justify">Acompanhamento de marcos físicos, cognitivos, sociais e emocionais em cada fase da infância.</p>
@@ -343,7 +366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="servicos/doencas-infantis.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/servico-doencas.jpg" alt="Diagnóstico e tratamento de doenças infantis" loading="lazy">
+          <img src="assets/servico-doencas.jpg" alt="Diagnóstico e tratamento de doenças infantis" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Diagnóstico e tratamento de doenças</h3>
         <p class="text-justify">Avaliação criteriosa e conduta personalizada para cada criança, com acolhimento da família.</p>
@@ -352,7 +375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <a href="servicos/amamentacao-introducao-alimentar.html" class="service-card reveal">
         <div class="service-image">
-          <img src="assets/photo-familia-bebe.jpg" alt="Apoio à amamentação e introdução alimentar" loading="lazy">
+          <img src="assets/photo-familia-bebe.jpg" alt="Apoio à amamentação e introdução alimentar" loading="lazy" width="600" height="400" decoding="async">
         </div>
         <h3>Amamentação e introdução alimentar</h3>
         <p class="text-justify">Orientação personalizada para uma nutrição equilibrada, prazerosa e adequada a cada criança.</p>
@@ -440,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="testimonials-dots" role="tablist">
+      <div class="testimonials-dots" role="group" aria-label="Navegação de depoimentos">
         <button class="testimonial-dot active" aria-label="Depoimento 1"></button>
         <button class="testimonial-dot" aria-label="Depoimento 2"></button>
         <button class="testimonial-dot" aria-label="Depoimento 3"></button>
@@ -465,7 +488,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid-3">
       <a href="blog/aplv-bebes.html" class="blog-card reveal">
         <div class="blog-card-image">
-          <img src="assets/blog-aplv.jpeg" alt="APLV em bebês, alergia à proteína do leite de vaca" loading="lazy">
+          <img src="assets/blog-aplv.jpeg" alt="APLV em bebês, alergia à proteína do leite de vaca" loading="lazy" width="800" height="450" decoding="async">
         </div>
         <div class="blog-card-body">
           <span class="blog-tag">Alergias e infecções</span>
@@ -475,7 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <a href="blog/poliomielite-vacina.html" class="blog-card reveal">
         <div class="blog-card-image">
-          <img src="assets/blog-vacinacao.jpg" alt="Cobertura vacinal contra a poliomielite" loading="lazy">
+          <img src="assets/blog-vacinacao.jpg" alt="Cobertura vacinal contra a poliomielite" loading="lazy" width="800" height="450" decoding="async">
         </div>
         <div class="blog-card-body">
           <span class="blog-tag">Vacinação</span>
@@ -485,7 +508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <a href="blog/mao-pe-boca.html" class="blog-card reveal">
         <div class="blog-card-image">
-          <img src="assets/blog-mao-pe-boca.jpg" alt="Doença Mão-Pé-Boca em crianças" loading="lazy">
+          <img src="assets/blog-mao-pe-boca.jpg" alt="Doença Mão-Pé-Boca em crianças" loading="lazy" width="800" height="450" decoding="async">
         </div>
         <div class="blog-card-body">
           <span class="blog-tag">Doenças infantis</span>
@@ -586,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="contact-grid">
       <div class="contact-image-wrap">
-        <img src="assets/photo-retrato-sentado.jpg" alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte" class="contact-photo" loading="lazy">
+        <img src="assets/photo-retrato-sentado.jpg" alt="Dr. Pedro Barbosa, pediatra em Belo Horizonte" class="contact-photo" loading="lazy" width="800" height="450" decoding="async">
       </div>
       <div class="contact-text reveal">
         <span class="section-eyebrow section-eyebrow--flush">Contato</span>
@@ -661,7 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-full-dark.png" alt="Dr. Pedro Barbosa Pediatria">
+        <img src="assets/logo-full-dark.png" alt="Dr. Pedro Barbosa Pediatria" width="180" height="55" decoding="async">
         <p>Pediatria humanizada em Belo Horizonte. Acompanhamento de bebês, crianças e adolescentes com escuta, presença e medicina baseada em evidências.</p>
       </div>
       <div class="footer-col">
@@ -728,6 +751,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=8" defer></script>
 </body>
 </html>

@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PTC4KX5Q');</script>
+<!-- Google Tag Manager (lazy load: 3s ou 1a interacao) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var f=document.getElementsByTagName('script')[0],
+        j=document.createElement('script');
+    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id=GTM-PTC4KX5Q';
+    f.parentNode.insertBefore(j,f);
+    dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){
+    window.addEventListener(e, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
 <!-- End Google Tag Manager -->
 
 <meta charset="UTF-8">
@@ -33,7 +46,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="../css/style.css?v=10">
 <link rel="stylesheet" href="../css/home.css?v=12">
 <link rel="stylesheet" href="../css/pages.css?v=12">
@@ -66,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="site-header">
   <div class="header-inner">
     <a href="../index.html" class="header-logo">
-      <img src="../assets/logo-pb-original.png" alt="Logo Dr. Pedro Barbosa">
+      <img src="../assets/logo-pb-original.png" alt="Logo Dr. Pedro Barbosa" width="40" height="40" decoding="async">
       <span class="header-logo-text">Dr. Pedro Barbosa</span>
     </a>
     <nav class="header-nav">
@@ -94,7 +108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="service-detail">
       <div class="service-detail-image">
-        <img src="../assets/photo-balanca-close.jpg" alt="Avaliação do crescimento e desenvolvimento">
+        <img src="../assets/photo-balanca-close.jpg" alt="Avaliação do crescimento e desenvolvimento" width="600" height="400" decoding="async">
       </div>
       <div class="service-detail-content reveal">
         <span class="section-eyebrow section-eyebrow--flush">Serviço</span>
@@ -156,7 +170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="../assets/logo-full-dark.png" alt="Dr. Pedro Barbosa Pediatria">
+        <img src="../assets/logo-full-dark.png" alt="Dr. Pedro Barbosa Pediatria" width="180" height="55" decoding="async">
         <p>Pediatria humanizada em Belo Horizonte. Acompanhamento de bebês, crianças e adolescentes com escuta, presença e medicina baseada em evidências.</p>
       </div>
       <div class="footer-col">
@@ -221,6 +235,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
 
-<script src="../js/main.js?v=8"></script>
+<script src="../js/main.js?v=8" defer></script>
 </body>
 </html>
