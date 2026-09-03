@@ -238,6 +238,21 @@
   max-width: 900px;
   margin: 44px auto 0;
 }
+/* Variante para landings regionais: 1 card centralizado */
+.landing-clinicas--single {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+}
+
+/* Subtítulo de seção (usado em landings regionais abaixo do section-title) */
+.section-subtitle {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-soft);
+  text-align: center;
+}
 .clinica-card {
   padding: 36px 32px;
   background: var(--color-white);
