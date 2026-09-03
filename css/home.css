@@ -42,7 +42,7 @@
 }
 
 .hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2.4rem, 4.8vw, 3.6rem);
   line-height: 1.08;
   margin-bottom: 22px;
@@ -550,7 +550,7 @@
 }
 
 .testimonial-card p {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 1.18rem;
@@ -778,7 +778,7 @@
   width: auto;
   padding: 0;
   margin-bottom: 12px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.3rem, 2.2vw, 1.55rem);
   font-weight: 500;
   color: var(--color-primary);
