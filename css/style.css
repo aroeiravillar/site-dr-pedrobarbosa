@@ -716,3 +716,42 @@ p { color: var(--color-text-soft); }
   color: var(--color-primary);
   letter-spacing: 0.08em;
 }
+
+/* ==========================================================
+   PERFORMANCE + CLS
+   Reduz layout shift na chegada da fonte serif (Playfair Display)
+   e economiza render das seções fora do viewport
+   ========================================================== */
+
+/* Fallback serif com metricas proximas do Playfair Display
+   Impede reflow perceptivel quando a webfont chega */
+@font-face {
+  font-family: 'PlayfairFallback';
+  src: local('Times New Roman'), local('Times');
+  size-adjust: 108%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+:root {
+  --font-serif: 'Playfair Display', 'PlayfairFallback', 'Times New Roman', serif;
+}
+
+/* content-visibility: browser pula render de secoes fora do viewport ate ficarem visiveis */
+.section,
+.cta-strip,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+/* Hero NAO recebe content-visibility - e o primeiro conteudo visivel */
+
+/* Cards com contain: layout evitam refluxo em cascata */
+.diferencial,
+.clinica-card,
+.landing-passos li,
+.blog-card,
+.exp-card,
+.service-card {
+  contain: layout style;
+}
