@@ -476,7 +476,7 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(44, 70, 96, 0.55);
+  color: var(--color-text-muted); /* WCAG AA: 5.13:1 (era rgba 0.55 com ~3.5:1) */
 }
 .credential-value {
   font-size: 1.05rem;

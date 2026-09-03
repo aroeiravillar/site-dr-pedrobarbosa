@@ -1,0 +1,299 @@
+/* ==========================================================
+   LANDING PAGES (uso: pediatra-particular-bh, melhor-pediatra-bh, etc.)
+   Layout enxuto focado em conversão. Header minimal, hero em 2 colunas.
+   ========================================================== */
+
+/* Header minimal (sem nav completo) */
+.landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+.landing-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.landing-header .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-primary);
+}
+.landing-header .header-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.landing-header-cta {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+
+/* Hero de landing (2 colunas) */
+.landing-hero {
+  background: var(--color-bg-light);
+  padding: 60px 0 80px;
+  position: relative;
+}
+.landing-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.landing-hero-text .hero-title {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.landing-hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.btn-large {
+  padding: 16px 28px;
+  font-size: 1.02rem;
+}
+
+/* Barra de trust signals */
+.landing-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 36px;
+  margin: 32px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(44, 70, 96, 0.12);
+  list-style: none;
+}
+.landing-trust-bar li {
+  font-size: 0.88rem;
+  color: var(--color-text-soft);
+}
+.landing-trust-bar strong {
+  color: var(--color-primary);
+  margin-right: 4px;
+}
+
+/* Hero image */
+.landing-hero-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 5;
+  max-width: 480px;
+  justify-self: end;
+}
+.landing-hero-image img,
+.landing-hero-image picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.landing-hero-image img {
+  object-fit: cover;
+}
+
+/* Diferenciais (grid de 2x2 no desktop) */
+.landing-diferenciais {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+.diferencial {
+  padding: 24px 28px;
+  background: var(--color-white);
+  border-radius: 14px;
+  border: 1px solid rgba(44, 70, 96, 0.08);
+}
+.diferencial h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin: 0 0 10px;
+}
+.diferencial p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+/* Seção Sobre em 2 colunas */
+.landing-sobre {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1080px;
+}
+.landing-sobre-image {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-md);
+}
+.landing-sobre-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.landing-sobre-text h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin: 12px 0 20px;
+  line-height: 1.2;
+}
+.landing-sobre-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+/* Passos numerados */
+.landing-passos {
+  list-style: none;
+  padding: 0;
+  max-width: 780px;
+  margin: 40px auto 0;
+  counter-reset: passo;
+}
+.landing-passos li {
+  padding: 22px 28px;
+  background: var(--color-white);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(44, 70, 96, 0.08);
+}
+.landing-passos strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+.landing-passos p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+/* Clínicas (cards) */
+.landing-clinicas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+.clinica-card {
+  padding: 32px;
+  background: var(--color-bg-cream);
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(44, 70, 96, 0.08);
+}
+.clinica-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+}
+.clinica-card p {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--color-text-soft);
+  margin-bottom: 10px;
+}
+.clinica-tel {
+  font-size: 0.92rem !important;
+  color: var(--color-text-muted) !important;
+  margin-bottom: 20px !important;
+}
+.clinica-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Footer minimal da landing */
+.landing-footer {
+  padding: 30px 0;
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.85rem;
+}
+.landing-footer p {
+  margin: 6px 0;
+}
+.landing-footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+}
+
+/* Responsivo (mobile) */
+@media (max-width: 900px) {
+  .landing-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .landing-hero-image {
+    justify-self: center;
+    max-width: 360px;
+  }
+  .landing-diferenciais {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .landing-sobre {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .landing-clinicas {
+    grid-template-columns: 1fr;
+  }
+  .landing-header-inner {
+    padding: 10px 16px;
+  }
+  .landing-header-cta {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-header .header-logo-text {
+    display: none;
+  }
+  .btn-large {
+    width: 100%;
+    justify-content: center;
+  }
+  .landing-hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .landing-trust-bar {
+    gap: 12px 20px;
+    font-size: 0.82rem;
+  }
+}
