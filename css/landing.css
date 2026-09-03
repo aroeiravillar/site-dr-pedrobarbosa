@@ -1,58 +1,19 @@
 /* ==========================================================
-   LANDING PAGES (uso: pediatra-particular-bh, melhor-pediatra-bh, etc.)
-   Layout enxuto focado em conversão. Header minimal, hero em 2 colunas.
+   LANDING PAGES (uso: pediatra-particular-bh e demais landings)
+   Reutiliza .hero, .hero-image-frame, .bg-pattern, .site-header,
+   .site-footer, .cta-strip e faq accordion do site.
+   Adiciona apenas os elementos específicos da landing.
    ========================================================== */
 
-/* Header minimal (sem nav completo) */
-.landing-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
-}
-.landing-header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.landing-header .header-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--color-primary);
-}
-.landing-header .header-logo-text {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 500;
-}
-.landing-header-cta {
-  padding: 10px 18px;
-  font-size: 0.9rem;
-}
-
-/* Hero de landing (2 colunas) */
-.landing-hero {
-  background: var(--color-bg-light);
-  padding: 60px 0 80px;
-  position: relative;
-}
+/* Hero da landing: mantém o layout 2-colunas da home mas adiciona trust bar */
 .landing-hero-inner {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
   align-items: center;
 }
 .landing-hero-text .hero-title {
-  margin-top: 12px;
+  margin-top: 4px;
   margin-bottom: 20px;
 }
 .landing-hero-cta {
@@ -63,17 +24,17 @@
   flex-wrap: wrap;
 }
 .btn-large {
-  padding: 16px 28px;
+  padding: 16px 30px;
   font-size: 1.02rem;
 }
 
-/* Barra de trust signals */
+/* Trust bar (CRM, RQE, especialidade, clínicas) */
 .landing-trust-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 20px 36px;
-  margin: 32px 0 0;
-  padding: 20px 0 0;
+  margin: 36px 0 0;
+  padding: 22px 0 0;
   border-top: 1px solid rgba(44, 70, 96, 0.12);
   list-style: none;
 }
@@ -84,67 +45,76 @@
 .landing-trust-bar strong {
   color: var(--color-primary);
   margin-right: 4px;
+  font-weight: 600;
 }
 
-/* Hero image */
 .landing-hero-image {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  aspect-ratio: 4 / 5;
-  max-width: 480px;
   justify-self: end;
 }
-.landing-hero-image img,
-.landing-hero-image picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.landing-hero-image img {
-  object-fit: cover;
-}
 
-/* Diferenciais (grid de 2x2 no desktop) */
+/* Cards de diferenciais (grid 2x2 com ícones) */
 .landing-diferenciais {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   max-width: 900px;
-  margin: 40px auto 0;
+  margin: 44px auto 0;
 }
 .diferencial {
-  padding: 24px 28px;
+  padding: 32px 28px;
   background: var(--color-white);
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(44, 70, 96, 0.08);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.diferencial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.diferencial-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  background: var(--color-bg-cream);
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+.diferencial-icon svg {
+  width: 22px;
+  height: 22px;
 }
 .diferencial h3 {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--color-primary);
   margin: 0 0 10px;
+  font-weight: 500;
 }
 .diferencial p {
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text-soft);
   margin: 0;
 }
 
-/* Seção Sobre em 2 colunas */
+/* Sobre o Dr. Pedro (2 colunas com foto + texto) */
 .landing-sobre {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 60px;
   align-items: center;
   max-width: 1080px;
 }
 .landing-sobre-image {
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 5;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
 }
 .landing-sobre-image img {
   width: 100%;
@@ -154,40 +124,74 @@
 }
 .landing-sobre-text h2 {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
   color: var(--color-primary);
-  margin: 12px 0 20px;
+  margin: 12px 0 22px;
   line-height: 1.2;
+  font-weight: 500;
 }
 .landing-sobre-text p {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text);
   margin-bottom: 16px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.landing-sobre-text .credenciais {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(44, 70, 96, 0.12);
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+.landing-sobre-text .credenciais .sep {
+  color: var(--color-text-muted);
+  margin: 0 10px;
 }
 
-/* Passos numerados */
+/* Passos numerados (Como funciona) */
 .landing-passos {
   list-style: none;
   padding: 0;
   max-width: 780px;
-  margin: 40px auto 0;
-  counter-reset: passo;
+  margin: 44px auto 0;
 }
 .landing-passos li {
-  padding: 22px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 24px 28px;
   background: var(--color-white);
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 14px;
   border: 1px solid rgba(44, 70, 96, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+.passo-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 .landing-passos strong {
   display: block;
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--color-primary);
   margin-bottom: 6px;
+  font-weight: 500;
 }
 .landing-passos p {
   margin: 0;
@@ -196,68 +200,66 @@
   color: var(--color-text-soft);
 }
 
-/* Clínicas (cards) */
+/* Cards de clínicas */
 .landing-clinicas {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   max-width: 900px;
-  margin: 40px auto 0;
+  margin: 44px auto 0;
 }
 .clinica-card {
-  padding: 32px;
-  background: var(--color-bg-cream);
-  border-radius: 16px;
+  padding: 36px 32px;
+  background: var(--color-white);
+  border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(44, 70, 96, 0.08);
+  border: 1px solid rgba(44, 70, 96, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.clinica-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 .clinica-card h3 {
   font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: var(--color-primary);
-  margin: 0 0 12px;
+  margin: 0 0 6px;
+  font-weight: 500;
 }
-.clinica-card p {
+.clinica-regiao {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.clinica-endereco {
   font-size: 0.98rem;
   line-height: 1.55;
-  color: var(--color-text-soft);
+  color: var(--color-text);
   margin-bottom: 10px;
 }
 .clinica-tel {
-  font-size: 0.92rem !important;
-  color: var(--color-text-muted) !important;
-  margin-bottom: 20px !important;
+  font-size: 0.92rem;
+  color: var(--color-text-soft);
+  margin-bottom: 22px;
 }
 .clinica-card .btn {
   width: 100%;
   justify-content: center;
 }
 
-/* Footer minimal da landing */
-.landing-footer {
-  padding: 30px 0;
-  background: var(--color-primary);
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  font-size: 0.85rem;
-}
-.landing-footer p {
-  margin: 6px 0;
-}
-.landing-footer a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: underline;
-}
-
-/* Responsivo (mobile) */
+/* Responsivo */
 @media (max-width: 900px) {
   .landing-hero-inner {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
   }
   .landing-hero-image {
     justify-self: center;
-    max-width: 360px;
   }
   .landing-diferenciais {
     grid-template-columns: 1fr;
@@ -265,24 +267,28 @@
   }
   .landing-sobre {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 36px;
+  }
+  .landing-sobre-image {
+    justify-self: center;
+    max-width: 340px;
+    aspect-ratio: 4 / 5;
   }
   .landing-clinicas {
     grid-template-columns: 1fr;
   }
-  .landing-header-inner {
-    padding: 10px 16px;
+  .landing-passos li {
+    padding: 20px;
+    gap: 16px;
   }
-  .landing-header-cta {
-    padding: 8px 14px;
-    font-size: 0.82rem;
+  .passo-num {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 500px) {
-  .landing-header .header-logo-text {
-    display: none;
-  }
   .btn-large {
     width: 100%;
     justify-content: center;
@@ -295,5 +301,11 @@
   .landing-trust-bar {
     gap: 12px 20px;
     font-size: 0.82rem;
+  }
+  .diferencial {
+    padding: 26px 22px;
+  }
+  .clinica-card {
+    padding: 28px 22px;
   }
 }

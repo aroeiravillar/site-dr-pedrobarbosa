@@ -57,7 +57,7 @@ window.dataLayer = window.dataLayer || [];
 <link rel="stylesheet" href="css/style.css?v=10">
 <link rel="stylesheet" href="css/home.css?v=12">
 <link rel="stylesheet" href="css/pages.css?v=13">
-<link rel="stylesheet" href="css/landing.css?v=1">
+<link rel="stylesheet" href="css/landing.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -94,25 +94,34 @@ window.dataLayer = window.dataLayer || [];
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTC4KX5Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- Header enxuto -->
-<header class="landing-header">
-  <div class="landing-header-inner">
+<!-- HEADER PADRÃO DO SITE -->
+<header class="site-header">
+  <div class="header-inner">
     <a href="/" class="header-logo" aria-label="Dr. Pedro Barbosa - Página inicial">
-      <picture><source srcset="assets/logo-pb-original.webp" type="image/webp"><img src="assets/logo-pb-original.png" alt="Dr. Pedro Barbosa" width="40" height="40" decoding="async"></picture>
+      <picture><source srcset="assets/logo-pb-original.webp" type="image/webp"><img src="assets/logo-pb-original.png" alt="Logo Dr. Pedro Barbosa Pediatria" width="40" height="40" decoding="async"></picture>
       <span class="header-logo-text">Dr. Pedro Barbosa</span>
     </a>
-    <a href="https://api.whatsapp.com/send/?phone=553123420210&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+consulta+com+o+Dr.+Pedro+Barbosa" class="btn btn-primary landing-header-cta" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+    <nav class="header-nav" aria-label="Navegação principal">
+      <a href="/">Home</a>
+      <a href="sobre">Sobre</a>
+      <a href="servicos">Serviços</a>
+      <a href="blog">Blog</a>
+      <a href="contato">Contato</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <main>
 
-<!-- HERO -->
-<section class="landing-hero">
-  <div class="landing-hero-inner container">
+<!-- HERO com bg-pattern (elegante, cor primária como estampa) -->
+<section class="hero bg-pattern landing-hero" aria-label="Apresentação">
+  <div class="hero-inner landing-hero-inner container">
     <div class="landing-hero-text">
       <span class="hero-eyebrow">Pediatra Particular em Belo Horizonte</span>
-      <h1 class="hero-title">Consulta pediátrica particular com escuta, tempo e cuidado individualizado.</h1>
+      <h1 class="hero-title">Consulta pediátrica particular com <em>escuta, tempo e cuidado individualizado</em>.</h1>
       <p class="hero-desc">Sou o Dr. Pedro Barbosa, pediatra e intensivista pediátrico em Belo Horizonte. Atendo nas Clínicas MV (Funcionários) e Numai (Pampulha), com consulta particular de 1 hora a 1 hora e 30 minutos, avaliação criteriosa e disponibilidade real para dúvidas entre consultas.</p>
       <div class="landing-hero-cta">
         <a href="https://api.whatsapp.com/send/?phone=553123420210&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+consulta+com+o+Dr.+Pedro+Barbosa" class="btn btn-primary btn-large" target="_blank" rel="noopener">Agendar consulta particular</a>
@@ -126,13 +135,15 @@ window.dataLayer = window.dataLayer || [];
       </ul>
     </div>
     <div class="landing-hero-image">
-      <picture><source srcset="assets/photo-retrato-mv.webp" type="image/webp"><img src="assets/photo-retrato-mv.jpg" alt="Dr. Pedro Barbosa, pediatra particular em Belo Horizonte" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async"></picture>
+      <div class="hero-image-frame">
+        <picture><source srcset="assets/photo-retrato-mv.webp" type="image/webp"><img src="assets/photo-retrato-mv.jpg" alt="Dr. Pedro Barbosa, pediatra particular em Belo Horizonte" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async"></picture>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Diferenciais da consulta particular -->
-<section class="section section-bg-cream" aria-labelledby="diferenciais-heading">
+<section class="section" aria-labelledby="diferenciais-heading">
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow">Por que particular</span>
@@ -140,18 +151,30 @@ window.dataLayer = window.dataLayer || [];
     </div>
     <div class="landing-diferenciais">
       <div class="diferencial">
+        <div class="diferencial-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
         <h3>Tempo dedicado</h3>
         <p>Consultas de 1 hora a 1 hora e 30 minutos. Tempo para exame físico completo, escuta atenta e todas as suas dúvidas respondidas com calma.</p>
       </div>
       <div class="diferencial">
+        <div class="diferencial-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <h3>Contato próximo</h3>
         <p>WhatsApp direto com o pediatra para orientação em situações intermediárias, evitando idas desnecessárias ao pronto socorro.</p>
       </div>
       <div class="diferencial">
+        <div class="diferencial-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
         <h3>Olhar de intensivista</h3>
         <p>Formação como intensivista pediátrico traz precisão para reconhecer sinais precoces de gravidade quando existem, e tranquilizar quando não são.</p>
       </div>
       <div class="diferencial">
+        <div class="diferencial-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
         <h3>Recibo para reembolso</h3>
         <p>Após a consulta, você recebe recibo médico para solicitar reembolso ao seu plano de saúde, conforme as regras da operadora.</p>
       </div>
@@ -160,23 +183,23 @@ window.dataLayer = window.dataLayer || [];
 </section>
 
 <!-- Sobre o Dr. Pedro -->
-<section class="section" aria-labelledby="sobre-heading">
+<section class="section section-bg-cream" aria-labelledby="sobre-heading">
   <div class="container landing-sobre">
     <div class="landing-sobre-image">
-      <picture><source srcset="assets/dr-pedro-consulta.webp" type="image/webp"><img src="assets/dr-pedro-consulta.jpg" alt="Dr. Pedro Barbosa em consulta pediátrica" width="600" height="400" loading="lazy" decoding="async"></picture>
+      <picture><source srcset="assets/dr-pedro-balanca.webp" type="image/webp"><img src="assets/dr-pedro-balanca.jpg" alt="Dr. Pedro Barbosa avaliando bebê em consulta pediátrica" width="600" height="750" loading="lazy" decoding="async"></picture>
     </div>
     <div class="landing-sobre-text">
       <span class="section-eyebrow section-eyebrow--flush">Sobre o Dr. Pedro</span>
       <h2 id="sobre-heading">Pediatra particular com formação sólida em BH</h2>
       <p>Formado em Medicina, com residência em Pediatria e segunda especialidade em Medicina Intensiva Pediátrica. Essa dupla formação me permite conduzir tanto os quadros comuns do dia a dia da infância quanto reconhecer com precisão as situações que exigem maior atenção.</p>
       <p>No consultório, meu foco é o cuidado próximo. Isso significa consultas com tempo suficiente para conversar, exame físico cuidadoso, plano de manejo escrito, disponibilidade real por WhatsApp para dúvidas entre consultas e coordenação com outros especialistas quando necessário.</p>
-      <p><strong>CRM-MG 75143 &middot; RQE 50238</strong></p>
+      <p class="credenciais"><strong>CRM-MG 75143</strong> <span class="sep">·</span> <strong>RQE 50238</strong></p>
     </div>
   </div>
 </section>
 
 <!-- Como funciona a consulta -->
-<section class="section section-bg-light" aria-labelledby="como-heading">
+<section class="section bg-pattern" aria-labelledby="como-heading">
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow">Como funciona</span>
@@ -184,24 +207,39 @@ window.dataLayer = window.dataLayer || [];
     </div>
     <ol class="landing-passos">
       <li>
-        <strong>1. Agendamento por WhatsApp</strong>
-        <p>Envie mensagem pelo botão desta página. Nossa equipe confirma o horário disponível na clínica de sua preferência (MV em Funcionários ou Numai em Pampulha).</p>
+        <span class="passo-num">1</span>
+        <div>
+          <strong>Agendamento por WhatsApp</strong>
+          <p>Envie mensagem pelo botão desta página. Nossa equipe confirma o horário disponível na clínica de sua preferência.</p>
+        </div>
       </li>
       <li>
-        <strong>2. Consulta de 1 hora a 1 hora e 30 minutos</strong>
-        <p>Anamnese completa, exame físico da criança, discussão do plano de cuidado e espaço garantido para todas as dúvidas da família.</p>
+        <span class="passo-num">2</span>
+        <div>
+          <strong>Consulta de 1 hora a 1 hora e 30 minutos</strong>
+          <p>Anamnese completa, exame físico da criança, discussão do plano de cuidado e espaço garantido para todas as dúvidas da família.</p>
+        </div>
       </li>
       <li>
-        <strong>3. Plano por escrito</strong>
-        <p>Você recebe orientações escritas quando útil, prescrições racionais e sinais de alerta explicados de forma clara.</p>
+        <span class="passo-num">3</span>
+        <div>
+          <strong>Plano por escrito</strong>
+          <p>Você recebe orientações escritas quando útil, prescrições racionais e sinais de alerta explicados de forma clara.</p>
+        </div>
       </li>
       <li>
-        <strong>4. Recibo médico para reembolso</strong>
-        <p>Emitimos recibo médico após a consulta para você solicitar reembolso ao plano de saúde, conforme as regras da operadora.</p>
+        <span class="passo-num">4</span>
+        <div>
+          <strong>Recibo médico para reembolso</strong>
+          <p>Emitimos recibo médico após a consulta para você solicitar reembolso ao plano de saúde, conforme as regras da operadora.</p>
+        </div>
       </li>
       <li>
-        <strong>5. Acompanhamento contínuo</strong>
-        <p>WhatsApp disponível para orientação em situações intermediárias e agendamento de retornos quando necessários.</p>
+        <span class="passo-num">5</span>
+        <div>
+          <strong>Acompanhamento contínuo</strong>
+          <p>WhatsApp disponível para orientação em situações intermediárias e agendamento de retornos quando necessários.</p>
+        </div>
       </li>
     </ol>
   </div>
@@ -217,13 +255,15 @@ window.dataLayer = window.dataLayer || [];
     <div class="landing-clinicas">
       <div class="clinica-card">
         <h3>Clínica MV</h3>
-        <p><strong>Funcionários, BH</strong><br>Rua Cláudio Manoel, 48, sala 1102<br>CEP 30140-100</p>
+        <p class="clinica-regiao">Funcionários, BH</p>
+        <p class="clinica-endereco">Rua Cláudio Manoel, 48, sala 1102<br>CEP 30140-100</p>
         <p class="clinica-tel">Telefone: (31) 3324-5212</p>
         <a href="https://api.whatsapp.com/send/?phone=553123420210&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+consulta+com+o+Dr.+Pedro+Barbosa" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Clínica MV</a>
       </div>
       <div class="clinica-card">
         <h3>Clínica Numai</h3>
-        <p><strong>São Luiz / Pampulha, BH</strong><br>Avenida Coronel José Dias Bicalho, 620</p>
+        <p class="clinica-regiao">São Luiz / Pampulha, BH</p>
+        <p class="clinica-endereco">Avenida Coronel José Dias Bicalho, 620</p>
         <p class="clinica-tel">Telefone: (31) 3504-0052</p>
         <a href="https://api.whatsapp.com/send/?phone=5531984656787&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+consulta+com+o+Dr.+Pedro+Barbosa" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Clínica Numai</a>
       </div>
@@ -231,55 +271,61 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section section--faq section-bg-cream" id="faq">
-  <div class="container container--narrow">
-    <span class="section-eyebrow section-eyebrow--flush">FAQ</span>
-    <h2 class="faq-heading">Perguntas frequentes sobre a consulta particular</h2>
-    <div class="faq-list faq-list--flat">
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Quanto custa uma consulta pediátrica particular com o Dr. Pedro Barbosa?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p>Os valores da consulta particular variam conforme o tipo (primeira consulta, retorno, atendimento de urgência). Envie mensagem pelo WhatsApp que informamos os valores atualizados e as formas de pagamento aceitas.</p>
-        </div>
+<!-- FAQ (accordion clicável - igual home) -->
+<section class="section section-bg-cream" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-intro">
+        <span class="section-eyebrow" style="margin-left:0">FAQ</span>
+        <h2>Perguntas frequentes</h2>
+        <p>Tire suas principais dúvidas sobre a consulta particular. Não encontrou sua pergunta?</p>
+        <a href="https://api.whatsapp.com/send/?phone=553123420210&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+uma+consulta+com+o+Dr.+Pedro+Barbosa" class="btn btn-primary" target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          O Dr. Pedro atende plano de saúde?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p>O atendimento é exclusivamente particular. Após a consulta é emitido recibo médico para que você possa solicitar reembolso junto ao seu plano de saúde, conforme as regras da operadora.</p>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question" aria-expanded="true">
+            Quanto custa uma consulta pediátrica particular com o Dr. Pedro Barbosa?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Os valores da consulta particular variam conforme o tipo (primeira consulta, retorno, atendimento de urgência). Envie mensagem pelo WhatsApp que informamos os valores atualizados e as formas de pagamento aceitas.</p>
+          </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Onde ficam os consultórios do Dr. Pedro Barbosa?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p>Atendemos em duas clínicas em Belo Horizonte. Clínica MV, na Rua Cláudio Manoel, 48, sala 1102, no bairro Funcionários. Clínica Numai, na Avenida Coronel José Dias Bicalho, 620, no bairro São Luiz/Pampulha.</p>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            O Dr. Pedro atende plano de saúde?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>O atendimento é exclusivamente particular. Após a consulta é emitido recibo médico para que você possa solicitar reembolso junto ao seu plano de saúde, conforme as regras da operadora.</p>
+          </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Quanto tempo dura uma consulta particular?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p>As consultas particulares têm tempo dedicado para escuta atenta da família. Duração média entre 1 hora e 1 hora e 30 minutos, com avaliação completa da criança e espaço para todas as dúvidas dos pais.</p>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Onde ficam os consultórios do Dr. Pedro Barbosa?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Atendemos em duas clínicas em Belo Horizonte. <strong>Clínica MV</strong>, na Rua Cláudio Manoel, 48, sala 1102, no bairro Funcionários. <strong>Clínica Numai</strong>, na Avenida Coronel José Dias Bicalho, 620, no bairro São Luiz/Pampulha.</p>
+          </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Como agendar uma consulta particular?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p>O agendamento é feito pelo WhatsApp da clínica preferida. Basta clicar em um dos botões desta página e enviar mensagem. Retornamos rapidamente com horários disponíveis.</p>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Quanto tempo dura uma consulta particular?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>As consultas particulares têm tempo dedicado para escuta atenta da família. Duração média entre 1 hora e 1 hora e 30 minutos, com avaliação completa da criança e espaço para todas as dúvidas dos pais.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Como agendar uma consulta particular?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>O agendamento é feito pelo WhatsApp da clínica preferida. Basta clicar em um dos botões desta página e enviar mensagem. Retornamos rapidamente com horários disponíveis.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -299,11 +345,49 @@ window.dataLayer = window.dataLayer || [];
 
 </main>
 
-<!-- Footer minimal -->
-<footer class="landing-footer">
+<!-- FOOTER PADRÃO DO SITE (adaptado com "Landing Page feita") -->
+<footer class="site-footer">
   <div class="container">
-    <p>© 2026 Dr. Pedro Barbosa Pediatria &middot; CRM-MG 75143 &middot; RQE 50238</p>
-    <p><a href="/politica-privacidade">Política de Privacidade</a></p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <picture><source srcset="assets/logo-full-dark.webp" type="image/webp"><img src="assets/logo-full-dark.png" alt="Dr. Pedro Barbosa Pediatria" width="180" height="55" decoding="async"></picture>
+        <p>Pediatria humanizada em Belo Horizonte. Acompanhamento de bebês, crianças e adolescentes com escuta, presença e medicina baseada em evidências.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="sobre">Sobre</a></li>
+          <li><a href="servicos">Serviços</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Clínica MV</strong><br>Rua Cláudio Manoel, 48, sala 1102<br>Funcionários, BH</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          <span>(31) 3324-5212</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Clínica Numai</strong><br>Av. Coronel José Dias Bicalho, 620<br>São Luiz/Pampulha, BH</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          <span>(31) 3504-0052</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr. Pedro Barbosa Pediatria. CRMMG 75143 / RQE 50238.</span>
+      <a href="/politica-privacidade">Política de Privacidade</a>
+    </div>
+    <div class="footer-credit">Landing Page feita por <strong>AV Marketing Médico</strong></div>
   </div>
 </footer>
 
