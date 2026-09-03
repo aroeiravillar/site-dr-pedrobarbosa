@@ -144,9 +144,12 @@
 
 @media (max-width: 900px) {
   .hero.bg-pattern::before {
-    background-position: top right;
-    background-size: 80% auto;
-    opacity: 0.28;
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    opacity: 0.22;
+    -webkit-mask-image: none;
+            mask-image: none;
   }
 }
 
