@@ -282,15 +282,45 @@
   justify-content: center;
 }
 
-/* Responsivo */
+/* Responsivo - Tablet */
 @media (max-width: 900px) {
+  /* Hero: reordena elementos - eyebrow, titulo, FOTO, desc, cta, trust bar */
   .landing-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
   }
-  .landing-hero-image {
-    justify-self: center;
+  .landing-hero-text {
+    display: contents; /* promove filhos ao layout do pai */
   }
+  .hero-eyebrow { order: 1; align-self: center; }
+  .landing-hero-text .hero-title { order: 2; margin-bottom: 8px; }
+  .landing-hero-image { order: 3; justify-self: center; }
+  .hero-desc { order: 4; }
+  .landing-hero-cta { order: 5; justify-content: center; }
+  .landing-trust-bar { order: 6; }
+
+  .landing-hero-image .hero-image-frame {
+    max-width: 320px;
+    aspect-ratio: 4 / 5;
+    border-radius: 200px 200px 24px 24px;
+    margin: 0 auto;
+  }
+  .hero-desc {
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+  }
+  .landing-hero-cta {
+    align-items: center;
+  }
+  .landing-trust-bar {
+    justify-content: center;
+  }
+
+  /* Outras seções: 1 coluna */
   .landing-diferenciais {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -298,11 +328,18 @@
   .landing-sobre {
     grid-template-columns: 1fr;
     gap: 36px;
+    text-align: center;
   }
   .landing-sobre-image {
     justify-self: center;
     max-width: 340px;
     aspect-ratio: 4 / 5;
+  }
+  .landing-sobre-text p {
+    text-align: justify;
+  }
+  .landing-sobre-text .credenciais {
+    text-align: center;
   }
   .landing-clinicas {
     grid-template-columns: 1fr;
@@ -318,6 +355,7 @@
   }
 }
 
+/* Responsivo - Mobile */
 @media (max-width: 500px) {
   .btn-large {
     width: 100%;
@@ -327,11 +365,31 @@
     flex-direction: column;
     align-items: stretch;
     gap: 14px;
+    width: 100%;
   }
+  .landing-hero-cta .btn-link {
+    text-align: center;
+  }
+  /* Trust bar em mobile: cada chip vira full width com label+valor lado a lado */
   .landing-trust-bar {
-    gap: 12px 20px;
-    font-size: 0.82rem;
+    gap: 10px;
   }
+  .landing-trust-bar li {
+    flex: 1 1 100% !important;
+    flex-direction: row !important;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+  .trust-value {
+    white-space: normal !important;
+    font-size: 0.95rem;
+  }
+  .trust-label {
+    flex-shrink: 0;
+    min-width: 92px;
+  }
+
   .diferencial {
     padding: 26px 22px;
   }
