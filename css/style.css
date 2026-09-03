@@ -608,7 +608,7 @@ p { color: var(--color-text-soft); }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('../assets/pattern-pb-large.png');
+  background-image: image-set(url('../assets/pattern-pb-large.webp') type('image/webp'), url('../assets/pattern-pb-large.png') type('image/png'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -673,7 +673,7 @@ p { color: var(--color-text-soft); }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('../assets/pattern-pb-large.png');
+  background-image: image-set(url('../assets/pattern-pb-large.webp') type('image/webp'), url('../assets/pattern-pb-large.png') type('image/png'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
