@@ -397,8 +397,8 @@ p { color: var(--color-text-soft); }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
+  gap: 42px;
   margin-bottom: 50px;
 }
 
