@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog/category/alergias-e-infeccoes", "destination": "/blog", "permanent": true },
+    { "source": "/blog/category/crescimento-e-desenvolvimento", "destination": "/blog", "permanent": true },
+    { "source": "/blog/category/:slug*", "destination": "/blog", "permanent": true }
+  ]
 }
